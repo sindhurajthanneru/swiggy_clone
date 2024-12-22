@@ -1,0 +1,37 @@
+<div class="restaurant-header">
+  <h1>{{ restaurant.name }}</h1>
+</div>
+<div class="restaurant-details">
+  <div class="restaurant-info">
+    <span class="rating">
+      <i class="star-icon">⭐</i> {{ restaurant.rating }}
+      <span class="rating-count">(5.4K+ ratings)</span>
+    </span>
+    <span class="cost">• ₹350 for two</span>
+  </div>
+  <div class="restaurant-meta">
+    <span class="cuisine">{{ restaurant.cuisine }}</span> |
+    <span class="location">Outlet <b>{{ restaurant.location }}</b></span> |
+    <span class="time">{{ restaurant.time }}</span>
+</div>
+</div>
+<div *ngFor="let item of menuItems; let i = index" class="menu-item">
+  <div class="menu-item-details">
+    <span class="bestseller" *ngIf="i === 0">Bestseller</span>
+    <h3>{{ item.name }}</h3>
+    <span class="price">₹{{ item.cost }}</span>
+    <p class="item-description">{{ item.description }}</p>
+    <div class="item-meta">
+      <span class="rating"><i class="star-icon">⭐</i> {{ item.rating }} ({{ item.reviews }} reviews)</span>
+    </div>
+  </div>
+  <div class="menu-item-image">
+    <img [src]="item.img" alt="{{ item.name }}" />
+    <button class="add-button" (click)="addToCart(item, i)">
+      {{ messages[i] ? messages[i] : 'ADD' }}
+    </button>
+    <button class="favorite-button" (click)="addToFav(item,i)">
+      <i class = "fas fa-heart"></i>
+    </button>
+  </div>
+</div>

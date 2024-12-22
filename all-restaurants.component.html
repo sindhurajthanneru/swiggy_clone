@@ -1,0 +1,17 @@
+<div class="top-restaurants-container">
+    <h3>Top restaurant chains in Warangal</h3>
+      <div class="carousel">
+        <div class="restaurant-cards">
+          <div *ngFor= "let restaurant of restaurants" class="restaurant-card" (click)="goToRestaurantDetail(restaurant.id)">
+            <img [src]= "restaurant.img" alt = "{{ restaurant.name }}" class="restaurant-image" />
+            <div class="restaurant-info">
+              <h4>{{ restaurant.name }}</h4>
+              <p class = "rating">{{ restaurant.rating }} • {{ restaurant.time }}</p>
+              <p>{{ restaurant.cuisine }}</p>
+              <p>{{ restaurant.location }}</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+    

@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <div class="logo">
+    <img src="assets/single-logo.jpg" alt="Swiggy Logo" />
+  </div>
+  <div class="links">
+    <a href="#"><i class='fas fa-briefcase'></i>Swiggy Corporate</a>
+    <a (click)="goToSearch()"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
+    <a href="#"><i class="fi fi-ts-badge-percent"></i>Offers <sup class="new-badge">NEW</sup></a>
+    <a href="#">Help</a>
+
+    <ng-container *ngIf="isLoggedIn; else signInLink">
+      <a href="#"><i class="fas fa-user"></i>{{ username }}</a>
+    </ng-container>
+    <ng-template #signInLink>
+      <a (click)="goToSignIn()"><i class="fas fa-sign-in"></i>Signin</a>
+    </ng-template>
+
+    <a (click) = "goToCart()"><i class="fa-solid fa-cart-shopping"></i>Cart</a>
+    <a (click)= "goToFav()"><i class="fas fa-heart"></i>Favourite</a>
+  </div>
+</nav>
